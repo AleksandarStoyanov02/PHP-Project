@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+</head>
+<body>
+<section class="container">
+    <article class="profile">
+        <h2>Welcome, {{username}}</h2>
+        <img src="../{{profile_picture}}" alt="Profile Picture" style="width:100px;height:100px;">
+        <p>Email: {{email}}</p>
+        <p>Points: {{points}}</p>
+        <a href="../editProfile/editProfile.php">Edit Profile</a>
+        <a href="../Logout/logout.php">Logout</a>
+    </article>
+</section>
+</body>
+</html>

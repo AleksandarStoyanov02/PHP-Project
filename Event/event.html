@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h2><?php echo htmlspecialchars($event['name']); ?></h2>
+    <p><?php echo htmlspecialchars($event['description']); ?></p>
+
+    <h3>Commands</h3>
+    <ul>
+        <?php while ($command = $commands->fetch_assoc()): ?>
+        <li><?php echo htmlspecialchars($command['command']); ?> at <?php echo $command['timestamp']; ?></li>
+        <?php endwhile; ?>
+    </ul>
+
+    <form action="event.php?id=<?php echo $event_id; ?>" method="post">
+        Command: <input type="text" name="command" required><br>
+        <input type="submit" value="Send Command">
+    </form>
+    <a href="adminDashboard.php">Back to Events</a>
+</head>
+<body>
+
+</body>
+</html>
