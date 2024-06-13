@@ -23,10 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Verify password
         if (password_verify($password, $user['password'])) {
             $_SESSION['username'] = $username;
+            $_SESSION['role'] = $user['role'];
+            $_SESSION['id'] = $user['id'];
             header('Location: ../Dashboard/dashboard.php');
             exit();
         } else {
-            echo "Invalid password.";
+            echo "Invalid credentials.";
         }
     } else {
         echo "No user found with that username.";
