@@ -143,9 +143,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_points'])) {
 <head>
     <title>Room</title>
     <style>
-<<<<<<< Updated upstream
-        /* Your CSS styles */
-=======
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -154,7 +151,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_points'])) {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
+        }
+
+        h2, h3 {
+            color: #333;
+            text-align: center;
         }
 
         .container {
@@ -162,71 +165,70 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_points'])) {
             border: 3px solid #5CACEE;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px #F5F5F5;
             max-width: 800px;
             width: 100%;
-            margin: 20px;
             text-align: center;
         }
 
-        .section {
-            margin-bottom: 20px;
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
         }
 
-        h2, h3 {
-            color: #333;
-            border-bottom: 2px solid #5CACEE;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        form {
-            text-align: center;
-            margin-top: 20px;
+        input[type=text], input[type=number], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
 
         button[type=submit] {
             background-color: #5CACEE;
-            color: #FFF;
+            color: white;
+            padding: 10px 20px;
             border: none;
-            padding: 10px;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            margin-top: 10px;
+            font-size: 16px;
         }
 
         button[type=submit]:hover {
             background-color: #007BFF;
         }
 
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        .sound-button {
+            background-color: #5CACEE;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .sound-button:disabled {
+            background-color: #ccc;
+        }
+
         #timer {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
         }
-
-        #chat-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 100%;
-            height: 300px;
-            overflow-y: scroll;
-            margin-bottom: 10px;
-        }
->>>>>>> Stashed changes
     </style>
-
 </head>
 <body>
 <h2>Room</h2>
