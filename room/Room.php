@@ -143,7 +143,88 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_points'])) {
 <head>
     <title>Room</title>
     <style>
+<<<<<<< Updated upstream
         /* Your CSS styles */
+=======
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #87CEEB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #F5F5F5;
+            border: 3px solid #5CACEE;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        h2, h3 {
+            color: #333;
+            border-bottom: 2px solid #5CACEE;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button[type=submit] {
+            background-color: #5CACEE;
+            color: #FFF;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button[type=submit]:hover {
+            background-color: #007BFF;
+        }
+
+        #timer {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        #chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 100%;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
+>>>>>>> Stashed changes
     </style>
 
 </head>

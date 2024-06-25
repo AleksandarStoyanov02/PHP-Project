@@ -6,8 +6,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ($_SESSION['role'] != 'admin') {
-    header('Location: dashboard.php');
-    exit();
+  //  header('Location: dashboard.php');
+    //exit();
 }
 
 $users = [];
@@ -45,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
     <title>Manage User Roles and Points</title>
+    <link rel="stylesheet" type="text/css" href="RoleManagement.css">
 </head>
 <body>
 <h2>Manage User Roles and Points</h2>

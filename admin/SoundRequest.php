@@ -33,6 +33,61 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['sound_file'])) {
 <html>
 <head>
     <title>Sound Request</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #5CACEE;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        form {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        input[type=text], input[type=file] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type=submit] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type=submit]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 <h2>Request a New Sound</h2>
@@ -47,3 +102,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['sound_file'])) {
 </form>
 </body>
 </html>
+
+

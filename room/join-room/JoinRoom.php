@@ -59,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
     <title>Join Room</title>
+    <link rel="stylesheet" href="JoinRoom.css">
     <script>
         function selectRoom() {
             const roomData = document.getElementById('room_id').value.split(',');

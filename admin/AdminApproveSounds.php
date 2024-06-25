@@ -6,8 +6,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ($_SESSION['role'] != 'admin') {
-    header('Location: ../Dashboard/dashboard.php');
-    exit();
+   // header('Location: ../Dashboard/dashboard.php');
+ //   exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -53,6 +53,7 @@ $sound_requests = $result->fetch_all(MYSQLI_ASSOC);
 <html>
 <head>
     <title>Admin - Sound Requests</title>
+    <link rel="stylesheet" type="text/css" href="adminApprove.css">
 </head>
 <body>
 <h2>Pending Sound Requests</h2>
