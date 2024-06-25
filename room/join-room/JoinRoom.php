@@ -36,15 +36,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $room = $result->fetch_assoc();
             // Check if already joined
-            $stmt = $conn->prepare("SELECT * FROM room_participants WHERE room_id = ? AND user_id = ?");
-            $stmt->bind_param("ii", $room['id'], $user_id);
+            $stmt = $conn->prepare("SELECT * FROM room_participants WHERE user_id = ?");
+            $stmt->bind_param("i", $user_id);
             $stmt->execute();
             if (!$stmt->fetch()) {
                 // Join the room
-                echo $role;
                 $stmt = $conn->prepare("INSERT INTO room_participants (room_id, user_id, role, row_position, column_position) VALUES (?, ?, ?, ?, ?)");
                 $stmt->bind_param("iisii", $room['id'], $user_id, $role, $row, $column);
                 $stmt->execute();
+            } else {
+                $error_message = "You have already joined a room.";
+                exit();
             }
             header('Location: ../Room.php?room_id=' . $room['id']);
             exit();

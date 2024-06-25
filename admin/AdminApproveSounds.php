@@ -17,15 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("i", $sound_id);
         $stmt->execute();
         $result = $stmt->get_result();
-        $sound_request = $result->fetch_all(MYSQLI_ASSOC);
-        var_dump($sound_request);
+        $sound_request = $result->fetch_assoc(); // Fetch single row as associative array
 
         $stmt = $conn->prepare("INSERT INTO sound (name, file_path, approved) VALUES (?, ?, 1)");
         $stmt->bind_param("ss", $sound_request['sound_name'], $sound_request['file_path']);
         $stmt->execute();
 
         $stmt = $conn->prepare("DELETE FROM sound_requests WHERE id = ?");
-        $stmt->bind_param("i", $sound_request['id']);
+        $stmt->bind_param("i", $sound_id);
         $stmt->execute();
 
     } elseif (isset($_POST['reject'])) {
@@ -34,12 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("i", $sound_id);
         $stmt->execute();
         $result = $stmt->get_result();
-        $sound_request = $result->fetch_all(MYSQLI_ASSOC);
+        $sound_request = $result->fetch_assoc(); // Fetch single row as associative array
 
         unlink($sound_request['file_path']);
 
         $stmt = $conn->prepare("DELETE FROM sound_requests WHERE id = ?");
-        $stmt->bind_param("i", $sound_request['id']);
+        $stmt->bind_param("i", $sound_id);
         $stmt->execute();
     }
 }
@@ -68,7 +67,9 @@ $sound_requests = $result->fetch_all(MYSQLI_ASSOC);
         <tr>
             <td><?php echo htmlspecialchars($request['username']); ?></td>
             <td><?php echo htmlspecialchars($request['sound_name']); ?></td>
-            <td><a href="<?php echo htmlspecialchars($request['file_path']); ?>" target="_blank">Play</a></td>
+            <td>
+                <button onclick="playSound('<?php echo htmlspecialchars($request['file_path']); ?>')">Play</button>
+            </td>
             <td>
                 <form action="AdminApproveSounds.php" method="POST" style="display:inline;">
                     <input type="hidden" name="sound_id" value="<?php echo $request['id']; ?>">
@@ -82,5 +83,12 @@ $sound_requests = $result->fetch_all(MYSQLI_ASSOC);
         </tr>
     <?php endforeach; ?>
 </table>
+
+<script>
+    function playSound(filePath) {
+        var audio = new Audio(filePath);
+        audio.play();
+    }
+</script>
 </body>
 </html>
